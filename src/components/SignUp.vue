@@ -11,17 +11,35 @@
                     <b-card-body class="square-card">                    
                         <b-form role="form" @submit.prevent="handleSubmit(onSubmit)">
                             <b-form-input alternative
-                                class="custom-input mb-3 font-general"
-                                name="Email"
+                                class="my-3 col-6 custom-input-2 font-general "
+                                name="Name"
                                 :rules="{required: true, email: true}"
                                 :invalid-feedback="invalidFeedback"
                                 prepend-icon="ni ni-email-83"
-                                placeholder="email"
-                                v-model="model.email">
+                                placeholder="name"
+                                v-model="model.email"
+                                style="margin-right: 5px; margin-left: 10px;">
                             </b-form-input>
-
                             <b-form-input alternative
-                                class="custom-input mb-3 font-general"
+                                class="my-3 col-6 custom-input-2 font-general "
+                                name="Lastname"
+                                :rules="{required: true, min: 6}"
+                                prepend-icon="ni ni-lock-circle-open"
+                                placeholder="last name"
+                                v-model="model.password"
+                                style="margin-right: 10px; margin-left: 5px;">
+                            </b-form-input>
+                            
+                            <b-form-input alternative
+                                class="mb-3 custom-input font-general"
+                                name="Email"
+                                :rules="{required: true, min: 6}"
+                                prepend-icon="ni ni-lock-circle-open"
+                                placeholder="email"
+                                v-model="model.password">
+                            </b-form-input>
+                            <b-form-input alternative
+                                class="mb-3 custom-input font-general"
                                 name="Password"
                                 :rules="{required: true, min: 6}"
                                 prepend-icon="ni ni-lock-circle-open"
@@ -29,14 +47,17 @@
                                 placeholder="password"
                                 v-model="model.password">
                             </b-form-input>
+                            <b-form-input
+                                class="mb-3 custom-input font-general"
+                                type="date">
 
-                            <b-form-checkbox class="my-3" v-model="model.rememberMe">Remember me</b-form-checkbox>
+                            </b-form-input>
 
-                            <b-button class="font-general my-3" block variant="primary">Log In</b-button>
+                            <b-form-checkbox class="my-2" v-model="model.rememberMe">Accept our terms and conditions</b-form-checkbox>
+
+                            <b-button class="font-general " block variant="primary">Sign In</b-button>
                         </b-form>
-                        <a href="#" class="my-2">forgot password?</a>
-                        <br>
-                        <a href="#" >not signed up? join now</a>
+
                     </b-card-body>
                 </b-col>
             </div>
