@@ -32,11 +32,13 @@
 
                             <b-form-checkbox class="my-3" v-model="model.rememberMe">Remember me</b-form-checkbox>
 
-                            <b-button class="font-general my-3" block variant="primary">Log In</b-button>
+                            <router-link to="/feed">
+                                <b-button class="font-general my-3" block variant="primary">Log In</b-button>
+                            </router-link>
                         </b-form>
                         <a href="#" class="my-2">forgot password?</a>
                         <br>
-                        <a href="#" >not signed up? join now</a>
+                        <router-link to="/signup">not signed up? join now</router-link>
                     </b-card-body>
                 </b-col>
             </div>
