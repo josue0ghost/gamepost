@@ -97,7 +97,7 @@ a {
 }
 
 .posting {
-    width: 90%;
+    width: 100%;
     height: auto;
     background: white;
 }
@@ -126,4 +126,12 @@ a {
     border-radius: 100%;
     //background: url(.png);
 
+}
+
+.feed-button {
+    width: 95%;
+    height: 70px;
+
+    background: #C4C4C4;
+    border-radius: 20px;
 }
