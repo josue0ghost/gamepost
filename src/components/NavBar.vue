@@ -21,8 +21,12 @@
                 <b-nav-form>
                     <input type="search" size="sm" class="mr-sm-2 searchbox" placeholder="Search...">
                     <a class="nav-icon" href="#"><span class="iconify" data-inline="false" data-icon="pixelarticons:search" style="color: #ffffff; font-size: 36px;"></span></a>
-                    <a class="nav-icon" href="#"><span class="iconify" data-inline="false" data-icon="pixelarticons:home" style="color: #ffffff; font-size: 36px;"></span></a>
-                    <a class="nav-icon" href="#"><span class="iconify" data-inline="false" data-icon="pixelarticons:notification" style="color: #ffffff; font-size: 36px;"></span></a>
+                    <router-link to="/feed">
+                        <a class="nav-icon" href="#"><span class="iconify" data-inline="false" data-icon="pixelarticons:home" style="color: #ffffff; font-size: 36px;"></span></a>
+                    </router-link>
+                    <router-link to="/notifications">
+                        <a class="nav-icon" href="#"><span class="iconify" data-inline="false" data-icon="pixelarticons:notification" style="color: #ffffff; font-size: 36px;"></span></a>
+                    </router-link>
                 </b-nav-form>
             </b-navbar-nav>
         </b-collapse>
