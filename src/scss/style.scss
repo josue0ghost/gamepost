@@ -2,10 +2,12 @@
     font-size: 24px;
 }
 
+// empty space
 .empty {
     height: 64px;
 }
 
+// login signin forms
 .square-card {
     margin-top: 50px;
 
@@ -33,6 +35,7 @@
     border-radius: 20px;
 }
 
+// --------------------------- POSTING ------------------------------
 .post-input {
     position: relative;
     text-align: left;
@@ -46,9 +49,13 @@
         text-align: start;
     }
 }
-
 .post-icon {
-    background-color: white
+    background: transparent;
+}
+.posting {
+    width: 100%;
+    height: auto;
+    background: white;
 }
 
 .btn-primary {
@@ -66,6 +73,7 @@ a {
     color: #163F5E;
 }
 
+// --------------------------- NAVBAR ------------------------------
 .navigation {
     background-color: #0A80A5;
 }
@@ -96,11 +104,11 @@ a {
     margin-right: 1.3rem;
 }
 
-.posting {
-    width: 100%;
-    height: auto;
-    background: white;
+.navbar {
+    padding-top: 0rem !important;
+    padding-bottom: 0rem !important;
 }
+
 
 .gray-background {
     height: 1000px;
@@ -119,19 +127,71 @@ a {
 }
 
 .friend{
-    position: absolute;
+    //position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: #163F5E;
+    border-radius: 100%;
+    margin: 0 .5rem;
+    //background: url(.png);
+
+}
+
+// feed buttons
+.btn-icon-clipboard {
+    width: 95%;
+    height: 4rem;
+    background: #C4C4C4;
+    border-radius: 20px;
+
+    font-size: 36px;
+    font-weight: normal;
+    line-height: 1.25;
+    color: black;
+
+    border: 0;
+    text-align: left;
+    font-family: inherit;
+    display: inline-block;
+    vertical-align: middle;
+    text-decoration: none;
+    -moz-appearance: none;
+    cursor: pointer;
+
+    &:hover {
+        background-color: white;
+        box-shadow: rgba(0, 0, 0, .1) 0 0 0 1px, rgba(0, 0, 0, .1) 0 4px 16px;
+    }
+
+    > div {
+        align-items: center;
+        display: flex;
+        margin-left: 1rem;
+    }
+
+    i {
+        box-sizing: content-box;
+        color: theme-color("primary");
+        vertical-align: middle;
+        font-size: 1.5rem;
+    }
+
+    span {
+        display: inline-block;
+        font-size: 0.875rem;
+        line-height: 1.5;
+        margin-left: 16px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        vertical-align: middle;
+    }
+}
+
+.profile-photo{
     width: 40px;
     height: 40px;
     background-color: #163F5E;
     border-radius: 100%;
     //background: url(.png);
-
-}
-
-.feed-button {
-    width: 95%;
-    height: 70px;
-
-    background: #C4C4C4;
-    border-radius: 20px;
 }

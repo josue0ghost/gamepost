@@ -16,16 +16,16 @@
 
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
-            <b-collapse id="nav-collapse" is-nav>
-                <b-navbar-nav class="ml-auto">
-                    <b-nav-form>
-                        <input type="search" size="sm" class="mr-sm-2 searchbox" placeholder="Search...">
-                        <a class="nav-icon" href="#"><span class="iconify" data-inline="false" data-icon="pixelarticons:search" style="color: #ffffff; font-size: 36px;"></span></a>
-                        <a class="nav-icon" href="#"><span class="iconify" data-inline="false" data-icon="pixelarticons:home" style="color: #ffffff; font-size: 36px;"></span></a>
-                        <a class="nav-icon" href="#"><span class="iconify" data-inline="false" data-icon="pixelarticons:notification" style="color: #ffffff; font-size: 36px;"></span></a>
-                    </b-nav-form>
-                </b-navbar-nav>
-            </b-collapse>
+        <b-collapse id="nav-collapse" is-nav>
+            <b-navbar-nav class="ml-auto">
+                <b-nav-form>
+                    <input type="search" size="sm" class="mr-sm-2 searchbox" placeholder="Search...">
+                    <a class="nav-icon" href="#"><span class="iconify" data-inline="false" data-icon="pixelarticons:search" style="color: #ffffff; font-size: 36px;"></span></a>
+                    <a class="nav-icon" href="#"><span class="iconify" data-inline="false" data-icon="pixelarticons:home" style="color: #ffffff; font-size: 36px;"></span></a>
+                    <a class="nav-icon" href="#"><span class="iconify" data-inline="false" data-icon="pixelarticons:notification" style="color: #ffffff; font-size: 36px;"></span></a>
+                </b-nav-form>
+            </b-navbar-nav>
+        </b-collapse>
         </b-navbar>
     </div>
 </template>

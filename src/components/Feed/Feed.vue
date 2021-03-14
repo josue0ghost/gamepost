@@ -14,9 +14,9 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator"
-import LColumn from '@/components/Feed/FeedLeftColumn.vue'
-import CColumn from '@/components/Feed/FeedCenterColumn.vue'
-import RColumn from '@/components/Feed/FeedRightColumn.vue'
+import LColumn from '@/components/Columns/LeftColumn.vue'
+import CColumn from '@/components/Columns/FeedCenterColumn.vue'
+import RColumn from '@/components/Columns/RightColumn.vue'
 
 @Component({
     components: {

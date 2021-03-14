@@ -1,10 +1,10 @@
 <template>
     <div class="posting text-center">
         <div class="row container">
-            <div class="col-1">
+            <b-col cols="1">
                 <div class="user"></div>
-            </div>
-            <div class="col-11 posting">
+            </b-col>
+            <b-col cols="11">
                 <b-form role="form" @submit.prevent="handleSubmit(onSubmit)">
                     <b-form-textarea alternative
                         class="mt-3 post-input"
@@ -16,30 +16,40 @@
                         v-model="model.textContent">
                     </b-form-textarea>
                     <button class="post-icon" style="border: none; float: left;">
-                        <span class="iconify" data-inline="false" data-icon="pixelarticons:gamepad" style="font-size: 39px;"></span>
+                        <IconifyIcon :icon="icons.gamepadIcon" height="39" />
                     </button>
                     <button class="post-icon" style="border: none; float: right;">
-                        <span class="iconify" data-inline="false" data-icon="pixelarticons:arrow-right" style="font-size: 37px;"></span>
+                        <IconifyIcon :icon="icons.arrowRight" height="39"/>
                     </button>
                 </b-form>
-            </div>
+            </b-col>
         </div>
     </div>
 </template>
 
 <script>
-    export default {
-        data() {
-            return {
-                model: {
-                    textContent: ''
-                }
-            }
-        },
-        methods: {
-            onSubmit() {
-            // this will be called only after form is valid. You can do api call here to login
+import IconifyIcon from '@iconify/vue';
+import gamepadIcon from '@iconify/icons-pixelarticons/gamepad';
+import arrowRight from '@iconify/icons-pixelarticons/arrow-right';
+export default {
+    components: {
+        IconifyIcon
+    },
+    data() {
+        return {
+            model: {
+                textContent: ''
+            },
+            icons: {
+                gamepadIcon,
+                arrowRight
             }
         }
+    },
+    methods: {
+        onSubmit() {
+        // this will be called only after form is valid. You can do api call here to login
+        }
     }
+}
 </script>
