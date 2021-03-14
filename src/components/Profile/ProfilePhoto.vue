@@ -3,7 +3,7 @@
         <b-col lg="3" class="order-lg-2">
             <div class="card-profile-image">
                 <a href="#">
-                    <b-img src="/img/logo.png" height="180" rounded="circle" />
+                    <b-img src="/img/logo.png" height="auto" rounded="circle" />
                 </a>
                 <div class="circle">
                     <a href="#">

@@ -1,11 +1,13 @@
 <template>
     <div class="">
-      <button type="button" class="btn-icon-clipboard">
-        <div>
-          <IconifyIcon :icon="icons.slidersIcon" />
-          <span>Settings & Privacy</span>
-        </div>
-      </button>
+      <router-link to="/settings">
+        <button type="button" class="btn-icon-clipboard">
+          <div>
+            <IconifyIcon :icon="icons.slidersIcon" />
+            <span>Settings & Privacy</span>
+          </div>
+        </button>
+      </router-link>
     </div>
 </template>
 
