@@ -33,6 +33,11 @@ const routes: Array<RouteConfig> = [
     path: "/feed",
     name: "Feed",
     component: () => import("../views/Feed.vue")
+  },
+  {
+    path: "/profile",
+    name: "My Profile",
+    component: () => import("../views/Profile.vue")
   }
 ];
 
