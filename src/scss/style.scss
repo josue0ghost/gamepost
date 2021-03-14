@@ -210,3 +210,16 @@ a {
         }
     }
 }
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    background-color: #C4C4C4;
+
+    left: 9rem;
+    bottom: 1rem;
+}
+
+

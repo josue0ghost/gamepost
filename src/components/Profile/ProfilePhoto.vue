@@ -5,7 +5,33 @@
                 <a href="#">
                     <b-img src="/img/logo.png" height="180" rounded="circle" />
                 </a>
+                <div class="circle">
+                    <a href="#">
+                        <IconifyIcon :icon="icons.cameraIcon" color="black"/>
+                    </a>
+                </div>
             </div>
         </b-col>
     </b-row>
 </template>
+
+<script>
+import { Component, Vue } from "vue-property-decorator"
+import IconifyIcon from '@iconify/vue';
+import cameraIcon from '@iconify/icons-pixelarticons/camera';
+
+
+@Component({
+    components: {
+        IconifyIcon
+    },
+    data() {
+        return {
+            icons: {
+                cameraIcon
+            }
+        }
+    }
+})
+export default class Home extends Vue {}
+</script>
