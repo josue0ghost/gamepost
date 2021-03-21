@@ -9,7 +9,7 @@
                 </b-col>
                 <b-col class="col-md-6 col-12 text-center">
                     <b-card-body class="square-card">                    
-                        <b-form role="form" @submit.prevent="handleSubmit(onSubmit)">
+                        <b-form role="form" @submit.prevent="onSubmit(onSubmit)">
                             <b-form-input alternative
                                 class="my-3 col-6 custom-input-2 font-general "
                                 name="Name"
@@ -17,7 +17,7 @@
                                 :invalid-feedback="invalidFeedback"
                                 prepend-icon="ni ni-email-83"
                                 placeholder="name"
-                                v-model="model.name"
+                                v-model="user.name"
                                 style="margin-right: 5px; margin-left: 10px;">
                             </b-form-input>
                             <b-form-input alternative
@@ -26,7 +26,7 @@
                                 :rules="{required: true}"
                                 prepend-icon="ni ni-lock-circle-open"
                                 placeholder="last name"
-                                v-model="model.password"
+                                v-model="user.lastName"
                                 style="margin-right: 10px; margin-left: 5px;">
                             </b-form-input>
                             
@@ -36,7 +36,7 @@
                                 :rules="{required: true, email: true}"
                                 prepend-icon="ni ni-lock-circle-open"
                                 placeholder="email"
-                                v-model="model.password">
+                                v-model="user.email">
                             </b-form-input>
                             <b-form-input alternative
                                 class="mb-3 custom-input font-general"
@@ -45,21 +45,19 @@
                                 prepend-icon="ni ni-lock-circle-open"
                                 type="password"
                                 placeholder="password"
-                                v-model="model.password">
+                                v-model="user.password">
                             </b-form-input>
                             <b-form-input
                                 class="mb-3 custom-input font-general"
                                 name="BirthDate"
                                 type="date"
-                                v-model="model.birthDate">
+                                v-model="user.birthDate">
 
                             </b-form-input>
 
-                            <b-form-checkbox class="my-2" v-model="model.rememberMe">Accept our terms and conditions</b-form-checkbox>
+                            <b-form-checkbox class="my-2" v-model="user.acceptTermsAndConditions">Accept our terms and conditions</b-form-checkbox>
 
-                            <router-link to="/feed">
-                                <b-button class="font-general " block variant="primary">Sign In</b-button>
-                            </router-link>
+                            <b-button type="submit" class="font-general " block variant="primary">Sign In</b-button>
                         </b-form>
 
                     </b-card-body>
@@ -73,10 +71,10 @@
     export default {
         computed: {
             state() {
-                return this.model.email.length >= 4
+                return this.user.email.length >= 4
             },
             invalidFeedback() {
-                if (this.model.email.length > 0) {
+                if (this.user.email.length > 0) {
                     return 'Enter at least 4 characters.'
                 }
                 return 'T'
@@ -84,7 +82,7 @@
         },
         data() {
             return {
-                model: {
+                user: {
                     name: '',
                     lastName: '',
                     email: '',
@@ -96,7 +94,13 @@
         },
         methods: {
             onSubmit() {
-            // this will be called only after form is valid. You can do api call here to login
+                // this will be called only after form is valid. You can do api call here to login
+                
+                console.log(this.user.name);
+                console.log(this.user.lastName);
+                console.log(this.user.email);
+                console.log(this.user.password);
+                console.log(this.user.birthDate);
             }
         }
     }
