@@ -77,17 +77,22 @@
               >
                 Accept our terms and conditions
               </b-form-checkbox>
-              <b-alert v-model="signuperror" variant="danger" dismissible>
-                unespected error, try later
-              </b-alert>
               <b-button
                 type="submit"
                 class="font-general"
                 block
                 variant="primary"
               >
-                Sign In
+                Sign Up
               </b-button>
+              <b-alert
+                v-model="signuperror"
+                variant="warning"
+                dismissible
+                style="position: fixed; top: 1em; right: 1em;"
+              >
+                {{ errormsg }}
+              </b-alert>
             </b-form>
           </b-card-body>
         </b-col>
@@ -101,10 +106,10 @@ import auth from "@/store/auth.js";
 export default {
   computed: {
     invalidEmailFeedback() {
-      return this.user.email.includes("@");
+      return this.invalidEmail();
     },
     invalidPasswordFeedback() {
-      return this.user.password.length >= 8;
+      return this.invalidPassword();
     }
   },
   data() {
@@ -117,24 +122,62 @@ export default {
         birthDate: "",
         acceptTermsAndConditions: false
       },
-      signuperror: false
+      signuperror: false,
+      errormsg: ""
     };
   },
   methods: {
+    invalidEmail() {
+      return this.user.email.includes("@");
+    },
+    invalidPassword() {
+      return this.user.password.length >= 8;
+    },
     async onSubmit() {
       // this will be called only after form is valid. You can do api call here to login
-      try {
-        await auth.signup(this.user).then(response => {
-          console.log(response);
-          if (response.status == 200) {
-            this.signuperror = false;
-            this.$router.push("/");
+      if (!this.invalidPassword() || !this.invalidEmail()) {
+        this.errormsg = "Fields must be valid";
+        this.signuperror = true;
+        return;
+      }
+
+      if (this.user.name == "" || this.user.lastName == "") {
+        this.errormsg = "Must enter name and last name";
+        this.signuperror = true;
+        return;
+      }
+
+      const now = new Date();
+      now.setDate(now.getDate() - 18 * 365);
+      const datesplitted = this.user.birthDate.split("-");
+      const vBirthdate = new Date(
+        datesplitted[0],
+        datesplitted[1],
+        datesplitted[2]
+      );
+
+      if (vBirthdate - now <= 0 && this.user.acceptTermsAndConditions == true) {
+        try {
+          await auth.signup(this.user).then(response => {
+            if (response.status == 200) {
+              this.signuperror = false;
+              this.$router.push("/");
+            }
+          });
+        } catch (err) {
+          if (err.response.status == 409) {
+            this.errormsg = "Email already registered";
           } else {
-            this.signuperror = true;
+            this.errormsg = "Unexpected error, please try later";
           }
-        });
-      } catch (err) {
-        console.error(err);
+          this.signuperror = true;
+        }
+      } else {
+        if (!this.user.acceptTermsAndConditions) {
+          this.errormsg = "You must accept our terms and conditions";
+        } else {
+          this.errormsg = "You must be 18 or older";
+        }
         this.signuperror = true;
       }
     }
