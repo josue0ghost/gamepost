@@ -1,8 +1,7 @@
 <template>
   <div>
     <b-row class="mb-4">
-      <b-col cols="4">
-      </b-col>
+      <b-col cols="4"> </b-col>
       <b-col cols="4">
         <b-input
           type="text"
@@ -14,8 +13,8 @@
       </b-col>
     </b-row>
     <card style="border-radius: 20px">
-    <b-form @submit.prevent="updateProfile">
-      <div class="settings-form">
+      <b-form @submit.prevent="updateProfile">
+        <div class="settings-form">
           <b-row>
             <b-col cols="4">
               <label>web page</label>
@@ -87,47 +86,50 @@
             </b-col>
           </b-row>
         </div>
-    </b-form>
+      </b-form>
     </card>
   </div>
 </template>
 
 <script>
-import Vue from "vue"
-import axios from "axios"
-import VueAxios from 'vue-axios'
-import card from '@/components/Cards/Card.vue';
+import Vue from "vue";
+import axios from "axios";
+import VueAxios from "vue-axios";
+import card from "@/components/Cards/Card.vue";
 
-Vue.use(VueAxios, axios)
+Vue.use(VueAxios, axios);
 
 export default {
-	components: {
-			card
-	},
+  components: {
+    card
+  },
   data() {
     return {
       user: {
-        name: '',
-        webpage: '',
-        git: '',
-        linkedin: '',
-        twitter: '',
-        facebook: ''
+        name: "",
+        webpage: "",
+        git: "",
+        linkedin: "",
+        twitter: "",
+        facebook: ""
       }
     };
   },
   methods: {
     updateProfile() {
-      alert('Your data: ' + JSON.stringify(this.user));
+      alert("Your data: " + JSON.stringify(this.user));
     }
   },
   mounted() {
-    Vue.axios.get('https://y38x8sqx2b.execute-api.us-east-2.amazonaws.com/test/readDynamoNetworksTable')
-    .then((response) => {
-			console.log(response.data);
-			this.user = response.data;
-			console.log(this.user)
-		})
+    Vue.axios
+      .get(
+        "https://y38x8sqx2b.execute-api.us-east-2.amazonaws.com/test/readDynamoNetworksTable"
+      )
+      .then(response => {
+        console.log(response.data);
+        this.user = response.data;
+        console.log(this.user);
+      });
   }
 };
 </script>

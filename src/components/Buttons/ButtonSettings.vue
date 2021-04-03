@@ -1,21 +1,21 @@
 <template>
-    <div class="">
-      <router-link to="/settings">
-        <button type="button" class="btn-icon-clipboard">
-          <div>
-            <IconifyIcon :icon="icons.slidersIcon" />
-            <span>Settings & Privacy</span>
-          </div>
-        </button>
-      </router-link>
-    </div>
+  <div class="">
+    <router-link to="/settings">
+      <button type="button" class="btn-icon-clipboard">
+        <div>
+          <IconifyIcon :icon="icons.slidersIcon" />
+          <span>Settings & Privacy</span>
+        </div>
+      </button>
+    </router-link>
+  </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import IconifyIcon from '@iconify/vue';
-import slidersIcon from '@iconify/icons-pixelarticons/sliders';
-import StatsCard from '@/components/Cards/StatsCard.vue';
+import IconifyIcon from "@iconify/vue";
+import slidersIcon from "@iconify/icons-pixelarticons/sliders";
+import StatsCard from "@/components/Cards/StatsCard.vue";
 
 @Component({
   components: {
@@ -27,10 +27,8 @@ import StatsCard from '@/components/Cards/StatsCard.vue';
       icons: {
         slidersIcon
       }
-    }
+    };
   }
 })
 export default class Home extends Vue {}
 </script>
-
-

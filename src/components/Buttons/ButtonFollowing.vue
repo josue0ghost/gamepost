@@ -11,9 +11,9 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import IconifyIcon from '@iconify/vue';
-import userIcon from '@iconify/icons-pixelarticons/user';
-import StatsCard from '@/components/Cards/StatsCard.vue';
+import IconifyIcon from "@iconify/vue";
+import userIcon from "@iconify/icons-pixelarticons/user";
+import StatsCard from "@/components/Cards/StatsCard.vue";
 
 @Component({
   components: {
@@ -25,10 +25,8 @@ import StatsCard from '@/components/Cards/StatsCard.vue';
       icons: {
         userIcon
       }
-    }
+    };
   }
 })
 export default class Home extends Vue {}
 </script>
-
-

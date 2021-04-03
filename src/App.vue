@@ -11,7 +11,8 @@
 </template>
 
 <style lang="scss">
-html, body {
+html,
+body {
   max-block-size: 100%;
   overflow-x: hidden;
 }
