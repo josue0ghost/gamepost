@@ -77,7 +77,9 @@
               >
                 Accept our terms and conditions
               </b-form-checkbox>
-
+              <b-alert v-model="signuperror" variant="danger" dismissible>
+                unespected error, try later
+              </b-alert>
               <b-button
                 type="submit"
                 class="font-general"
