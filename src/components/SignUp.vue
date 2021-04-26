@@ -102,7 +102,7 @@
 </template>
 
 <script>
-import auth from "@/store/auth.js";
+import auth from "@/store/apiroutes.js";
 export default {
   computed: {
     invalidEmailFeedback() {

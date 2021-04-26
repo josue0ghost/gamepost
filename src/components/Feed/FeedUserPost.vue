@@ -5,7 +5,7 @@
         <div class="user"></div>
       </b-col>
       <b-col cols="11">
-        <b-form role="form" @submit.prevent="handleSubmit(onSubmit)">
+        <b-form role="form" @submit.prevent="onSubmit(onSubmit)">
           <b-form-textarea
             alternative
             class="mt-3 post-input"
@@ -20,7 +20,7 @@
           <button class="post-icon" style="border: none; float: left;">
             <IconifyIcon :icon="icons.gamepadIcon" height="39" />
           </button>
-          <button class="post-icon" style="border: none; float: right;">
+          <button class="post-icon" type="submit" style="border: none; float: right;">
             <IconifyIcon :icon="icons.arrowRight" height="39" />
           </button>
         </b-form>
@@ -33,6 +33,9 @@
 import IconifyIcon from "@iconify/vue";
 import gamepadIcon from "@iconify/icons-pixelarticons/gamepad";
 import arrowRight from "@iconify/icons-pixelarticons/arrow-right";
+import upload from "@/store/apiroutes.js";
+
+
 export default {
   components: {
     IconifyIcon
@@ -49,8 +52,19 @@ export default {
     };
   },
   methods: {
-    onSubmit() {
-      // this will be called only after form is valid. You can do api call here to login
+    async onSubmit() {
+      try {
+        const data = {
+          userid: localStorage.userid,
+          content: this.model.textContent
+        };
+
+        await upload.uploadpost(data).then(response => {
+          console.log(response);
+        });
+      } catch (err) {
+        console.error(err);
+      }
     }
   }
 };

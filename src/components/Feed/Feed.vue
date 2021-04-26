@@ -12,18 +12,27 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import { Component, Vue } from "vue-property-decorator";
 import LColumn from "@/components/Columns/LeftColumn.vue";
 import CColumn from "@/components/Columns/FeedCenterColumn.vue";
 import RColumn from "@/components/Columns/RightColumn.vue";
+import Posts from "@/store/apiroutes.js";
 
-@Component({
+export default {
   components: {
     LColumn,
     CColumn,
     RColumn
+  },
+  mounted() {
+    try {
+      Posts.getposts().then(response => {
+        console.log(response);
+      });
+    } catch (err) {
+      console.log(err);
+    }
   }
-})
-export default class Home extends Vue {}
+}
 </script>

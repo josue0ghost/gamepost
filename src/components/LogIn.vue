@@ -40,8 +40,12 @@
               <b-form-checkbox class="my-3" v-model="user.rememberMe">
                 Remember me
               </b-form-checkbox>
-
-              <b-alert v-model="loginerror" variant="danger" dismissible>
+              <b-alert
+                v-model="loginerror"
+                variant="danger"
+                dismissible
+                style="position: fixed; top: 1em; right: 1em;"
+              >
                 email or password incorrect
               </b-alert>
               <b-button
@@ -65,7 +69,7 @@
 </template>
 
 <script>
-import auth from "@/store/auth.js";
+import auth from "@/store/apiroutes.js";
 
 export default {
   data() {
@@ -86,7 +90,11 @@ export default {
           console.log(response);
           if (response.status == 200) {
             this.loginerror = false;
+
+            localStorage.userid = response.data.userid;
+            
             this.$router.push("/feed");
+            console.log(localStorage.userid);
           } else {
             this.loginerror = true;
           }

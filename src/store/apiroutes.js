@@ -16,5 +16,16 @@ export default {
       "https://y38x8sqx2b.execute-api.us-east-2.amazonaws.com/test/auth",
       user
     );
+  },
+  uploadpost(data) {
+    return Vue.axios.post(
+      "http://localhost:3000/post",
+      data
+    );
+  },
+  getposts() {
+    return Vue.axios.get(
+      "http://localhost:3000/getposts"
+    );
   }
 };
