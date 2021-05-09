@@ -15,6 +15,11 @@ import LogIn from "@/components/LogIn.vue";
 @Component({
   components: {
     LogIn
+  },
+  computed: {
+    isAuthenticated: function () {
+      return this.$store.getters.isAuthenticated();
+    }
   }
 })
 export default class Home extends Vue {}

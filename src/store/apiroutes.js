@@ -19,13 +19,13 @@ export default {
   },
   uploadpost(data) {
     return Vue.axios.post(
-      "http://localhost:3000/post",
+      "http://localhost:8000/post",
       data
     );
   },
   getposts() {
     return Vue.axios.get(
-      "http://localhost:3000/getposts"
+      "http://localhost:8000/getposts"
     );
   }
 };
