@@ -37,12 +37,15 @@
         <b-navbar-nav class="ml-auto">
           <b-nav-form>
             <input
-              type="search"
+              type="text"
               size="sm"
               class="mr-sm-2 searchbox"
               placeholder="Search..."
+              v-model="search"
             />
+            <router-link to="/search">
             <a class="nav-icon" href="#"
+              @click="searchUpdate"
               ><span
                 class="iconify"
                 data-inline="false"
@@ -50,6 +53,7 @@
                 style="color: #ffffff; font-size: 36px;"
               ></span
             ></a>
+            </router-link>
             <router-link to="/feed">
               <a class="nav-icon" href="#"
                 ><span
@@ -78,7 +82,24 @@
 </template>
 
 <script>
-export default {};
+import { debounce } from 'vue-debounce'
+
+export default {
+  data() {
+    return {
+      search: ''
+    }
+  },
+  methods: {
+    searchUpdate() {
+      console.log("Router: ", this.$router.currentRoute.name)
+      localStorage.searchparameter = this.search;
+      if (this.$router.currentRoute.name == "Search") {
+        this.$router.go();
+      }
+    }
+  }
+};
 </script>
 
 <style></style>

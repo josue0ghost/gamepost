@@ -8,7 +8,7 @@ import {VueAuthenticate} from "vue-authenticate";
 Vue.use(VueAxios, axios);
 
 const vueAuth = new VueAuthenticate(Vue.prototype.$http, {
-  baseUrl: "http://localhost:3000/",
+  baseUrl: process.env.VUE_APP_API_BASE_URL,
   tokenName: "access_token",
   loginUrl: "/login",
   registerUrl: "/register"

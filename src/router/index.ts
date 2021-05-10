@@ -55,6 +55,14 @@ const routes: Array<RouteConfig> = [
     }
   },
   {
+    path: "/search",
+    name: "Search",
+    component: () => import("../views/Search.vue"),
+    meta: {
+      middleware: user
+    }
+  },
+  {
     path: "/settings",
     name: "Settings",
     component: () => import("../views/Settings.vue"),

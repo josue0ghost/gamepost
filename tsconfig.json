@@ -33,8 +33,11 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
-    "tests/**/*.tsx"
-, "src/store/apiroutes.js", "src/router/index.js", "src/middleware/auth.js"  ],
+    "tests/**/*.tsx",
+    "src/store/apiroutes.js",
+    "src/router/index.js",
+    "src/middleware/auth.js"
+  ],
   "exclude": [
     "node_modules"
   ]

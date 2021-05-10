@@ -1,19 +1,18 @@
 <template>
   <div>
     <FeedUserPost />
-    <FeedPost style="margin-top: 1rem;" />
+    <FeedPost/>
   </div>
 </template>
 
-<script lang="ts">
-import Vue from "vue";
+<script>
 import FeedUserPost from "@/components/Feed/FeedUserPost.vue";
 import FeedPost from "@/components/Feed/FeedPost.vue";
 
-export default Vue.extend({
+export default {
   components: {
     FeedUserPost,
     FeedPost
   }
-});
+}
 </script>

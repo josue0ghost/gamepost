@@ -15,6 +15,7 @@ html,
 body {
   max-block-size: 100%;
   overflow-x: hidden;
+  background-color: #e7e7e7;
 }
 
 #app {

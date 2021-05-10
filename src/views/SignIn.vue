@@ -17,7 +17,7 @@ import LogIn from "@/components/LogIn.vue";
     LogIn
   },
   computed: {
-    isAuthenticated: function () {
+    isAuthenticated: function() {
       return this.$store.getters.isAuthenticated();
     }
   }

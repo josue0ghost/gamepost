@@ -35,7 +35,6 @@ import gamepadIcon from "@iconify/icons-pixelarticons/gamepad";
 import arrowRight from "@iconify/icons-pixelarticons/arrow-right";
 import upload from "@/store/apiroutes.js";
 
-
 export default {
   components: {
     IconifyIcon
@@ -58,7 +57,7 @@ export default {
           userid: localStorage.userid,
           content: this.model.textContent
         };
-
+        console.log(data);
         await upload.uploadpost(data).then(response => {
           console.log(response);
         });

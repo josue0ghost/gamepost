@@ -87,14 +87,11 @@ export default {
       // this will be called only after form is valid. You can do api call here to login
       try {
         await auth.login(this.user).then(response => {
-          console.log(response);
           if (response.status == 200) {
             this.loginerror = false;
-
-            localStorage.userid = response.data.userid;
-            
+            sessionStorage.userid = response.data.userid;
+            sessionStorage.name = response.data.userName + ' ' + response.data.lastName;
             this.$router.push("/feed");
-            console.log(localStorage.userid);
           } else {
             this.loginerror = true;
           }
