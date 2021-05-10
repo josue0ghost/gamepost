@@ -19,25 +19,25 @@ export default {
   },
   uploadpost(data) {
     return Vue.axios.post(
-      "http://localhost:3000/post",
+      process.env.VUE_APP_API_BASE_URL + "/post",
       data
     );
   },
   getposts(data) {
     return Vue.axios.post(
-      "http://localhost:3000/getposts",
+      process.env.VUE_APP_API_BASE_URL + "/getposts",
       data
     );
   },
   searchusers(data) {
     return Vue.axios.post(
-      "http://localhost:3000/search",
+      process.env.VUE_APP_API_BASE_URL + "/search",
       data
     );
   },
   followuser(data) {
     return Vue.axios.post(
-      "http://localhost:3000/follow",
+      process.env.VUE_APP_API_BASE_URL + "/follow",
       data
     );
   }
