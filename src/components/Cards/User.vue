@@ -94,10 +94,10 @@ export default Vue.extend({
     async GetUsers(data) {
       try {
         await mUsers.searchusers(data).then(response => {
-          console.log("Response", response.data.Items)
-          if (response.status == 200) {
+          console.log("Response", response.data)
+          if (response.data.statusCode == 200) {
             this.results = [];
-            response.data.Items.forEach(element => {
+            response.data.body.Items.forEach(element => {
               console.log("Elemet", element )
               const searchdata = element
               const postObj = {

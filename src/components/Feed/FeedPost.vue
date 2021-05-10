@@ -106,9 +106,9 @@ export default {
       try {
         await getposts.getposts(data).then(response => {
           console.log("Response", response)
-          if (response.status == 200) {
+          if (response.data.statusCode == 200) {
             this.postings = [];
-            response.data[0].forEach(element => {
+            response.data.body[0].forEach(element => {
               const postdata = element
               const postObj = {
                 username: postdata.name,
