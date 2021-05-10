@@ -52,17 +52,19 @@ export default {
   },
   methods: {
     async onSubmit() {
-      try {
-        const data = {
-          userid: localStorage.userid,
-          content: this.model.textContent
-        };
-        console.log(data);
-        await upload.uploadpost(data).then(response => {
-          console.log(response);
-        });
-      } catch (err) {
-        console.error(err);
+      if (this.model.textContent.trim() != "") {
+        try {
+          const data = {
+            userid: sessionStorage.userid,
+            content: this.model.textContent
+          };
+          await upload.uploadpost(data).then(response => {
+            console.log(response);
+            this.$router.go();
+          });
+        } catch (err) {
+          console.error(err);
+        }
       }
     }
   }

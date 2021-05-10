@@ -105,16 +105,17 @@ export default {
     async GetGamePosts(data) {
       try {
         await getposts.getposts(data).then(response => {
-          console.log("Response", response)
           if (response.data.statusCode == 200) {
             this.postings = [];
-            response.data.body[0].forEach(element => {
-              const postdata = element
-              const postObj = {
-                username: postdata.name,
-                content: postdata.content
-              }
-              this.postings.push(postObj);
+            response.data.body.forEach(element => {
+              element.forEach(item => {
+                const postdata = item
+                const postObj = {
+                  username: postdata.name,
+                  content: postdata.content
+                }
+                this.postings.push(postObj);
+              })
             });
             
             this.showloader = false;

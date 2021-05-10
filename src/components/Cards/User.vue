@@ -98,7 +98,6 @@ export default Vue.extend({
           if (response.data.statusCode == 200) {
             this.results = [];
             response.data.body.Items.forEach(element => {
-              console.log("Elemet", element )
               const searchdata = element
               const postObj = {
                 userName: searchdata.userName,
@@ -107,7 +106,6 @@ export default Vue.extend({
               }
               this.results.push(postObj);
             });
-            
             this.showloader = false;
           }
         })
